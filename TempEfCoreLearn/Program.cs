@@ -22,7 +22,7 @@ namespace TempEfCoreLearn
     public class PerformanceTest
     {
         [Benchmark]
-        public List<Cinema> BagatkaGetCinemasByMovieId()
+        public List<Cinema> BagatkaGetCinemasByShowtimeMovieId()
         {
             const int movieId = 2;
 
@@ -30,7 +30,7 @@ namespace TempEfCoreLearn
 
             return context.Showtime
                 .Include(showtime => showtime.Hall)
-                .ThenInclude(hall => hall.Cinema)
+                    .ThenInclude(hall => hall.Cinema)
                 .Where(showtime => showtime.MovieId == movieId)
                 .AsEnumerable()
                 .Select(showtime => showtime.Hall.Cinema)
@@ -39,7 +39,7 @@ namespace TempEfCoreLearn
         }
 
         [Benchmark]
-        public List<Cinema> GuysGetCinemasByMovieId()
+        public List<Cinema> GuysGetCinemasByShowtimeMovieId()
         {
             const int movieId = 2;
 
