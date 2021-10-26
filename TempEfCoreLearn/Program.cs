@@ -73,6 +73,7 @@ namespace TempEfCoreLearn
     }
 
     #region DatabaseConfiguration
+
     public class CinemasContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
