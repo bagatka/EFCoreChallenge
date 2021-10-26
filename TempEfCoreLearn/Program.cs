@@ -62,11 +62,13 @@ namespace TempEfCoreLearn
                             )
                     )
                 .Where(
-                    cinema => cinema.Halls.Any(
-                        hall => hall.Showtimes.Any(
-                                showtime => showtime.MovieId == movieId
-                            )
-                    )
+                    cinema =>
+                        cinema.Halls.Any(
+                            hall =>
+                                hall.Showtimes.Any(
+                                    showtime => showtime.MovieId == movieId
+                                )
+                        )
                 )
                 .ToList();
         }
